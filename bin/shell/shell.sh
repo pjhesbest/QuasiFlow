@@ -77,14 +77,7 @@ quasitools hydra ${sampleID}_val_1.fq \
                 --min_freq 0.01 \
                 --min_ac 5
 
-virulign HIV-HXB2-pol.xml HIVdb.fasta \
-            --exportKind  GlobalAlignment \
-            --exportAlphabet Nucleotides \
-            --exportWithInsertions no \
-            --exportReferenceSequence yes \
-            --nt-debug Failed > HIVrt.fasta
-
-    pigz --best ${sampleID}_val_1.fq ${sampleID}_val_2.fq
+pigz --best ${sampleID}_val_1.fq ${sampleID}_val_2.fq
 
 sierrapy --virus HIV1 fasta consensus.fasta -o ${sampleID}.sierrapy.hiv1.json
 
